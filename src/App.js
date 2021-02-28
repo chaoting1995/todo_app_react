@@ -1,26 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TodoApp from './components/TodoApp';
+import styled from '@emotion/styled';
+// 控制全域樣式
+import { Global, css } from '@emotion/react';
+//---------------------styles------------------------//
+const TodoAppWrap = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
-function App() {
+//--------------------component-----------------------//
+const App = () => {
+  //---------------------JSX------------------------//
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Global
+        styles={css`
+          body {
+            background-color: #ededed;
+          }
+          ${
+            '' /* * ::selection {
+            background-color: #ededed;
+            color: #fff;
+          } */
+          }
+        `}
+      />
+      <TodoAppWrap>
+        <TodoApp />
+      </TodoAppWrap>
+    </>
   );
-}
+};
 
 export default App;
